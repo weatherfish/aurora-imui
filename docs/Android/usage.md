@@ -39,7 +39,7 @@ dependencies {
 ```
 
 ## 使用
-使用消息列表只需几个简单的步骤，可以参考一下 [demo](./../sample)。
+使用消息列表只需几个简单的步骤，可以参考一下 [demo](./../../Android/sample)。
 
 ### 1. 在布局文件中引用 MessageList：
 ```xml
