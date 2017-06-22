@@ -11,7 +11,7 @@ Provides several ways to add dependency, you can choose one of them:
 
 - Via Gradle
 ```groovy
-compile 'cn.jiguang.imui:chatinput:0.1.1'
+compile 'cn.jiguang.imui:chatinput:0.2.0'
 ```
 
 - Via Maven
@@ -20,7 +20,7 @@ compile 'cn.jiguang.imui:chatinput:0.1.1'
 <dependency>
   <groupId>cn.jiguang.imui</groupId>
   <artifactId>chatinput</artifactId>
-  <version>0.1.1</version>
+  <version>0.2.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -41,7 +41,7 @@ allprojects {
 
 ```groovy
 dependencies {
-  compile 'com.github.jpush:imui:0.1.1'
+  compile 'com.github.jpush:imui:0.2.0'
 }
 ```
 
@@ -56,13 +56,13 @@ Using ChatInputView only need two steps.
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:cameraBtnIcon="@drawable/camera"
-        app:inputCursorDrawable="@drawable/jmui_text_cursor_bg"
-        app:inputEditTextBg="@drawable/jmui_chat_input_bg"
-        app:inputHint="@string/input_hint"
-        app:photoBtnIcon="@drawable/photo"
-        app:sendBtnIcon="@drawable/send"
-        app:voiceBtnIcon="@drawable/mic" />
+        app:cameraBtnIcon="@drawable/aurora_menuitem_camera"
+        app:inputCursorDrawable="@drawable/aurora_edittext_cursor_bg"
+        app:inputEditTextBg="@drawable/aurora_edittext_bg"
+        app:inputHint="@string/chat_input_hint"
+        app:photoBtnIcon="@drawable/aurora_menuitem_photo"
+        app:sendBtnIcon="@drawable/aurora_menuitem_send"
+        app:voiceBtnIcon="@drawable/aurora_menuitem_mic" />
 ```
 
 #### Step two: init `ChatInputView`

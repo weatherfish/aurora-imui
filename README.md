@@ -1,9 +1,9 @@
-[![tag](https://img.shields.io/badge/tag-0.1.1-blue.svg)](https://github.com/jpush/imui/releases)
+[![tag](https://img.shields.io/badge/tag-0.2.0-blue.svg)](https://github.com/jpush/imui/releases)
 [![support](https://img.shields.io/badge/support-iOS%20%26%20Android-brightgreen.svg)]()
 [![QQ Group](https://img.shields.io/badge/QQ%20Group-604798367-red.svg)]()
 
 # Aurora IMUI
-[中文文档](./README_CH.md)
+[中文文档](./README_zh.md)
 
 Aurora IMUI is a general IM UI components, which is not depending on any specific IM SDK.
 
@@ -43,14 +43,18 @@ Currently support for display and input message types:
 Ready components:
 
 ### Android
-- [MessageList](./docs/Android/usageEn.md)
+- [MessageList](./docs/Android/message_list_usage.md)
 - [ChatInputView](./Android/chatinput/README_EN.md)
 
 ### iOS (Swift)
-- [IMUIMessageCollectionView](./docs/iOS/usage_en.md)
-- [IMUIInputView](./docs/iOS/inputView_usage_en.md)
+- [IMUIMessageCollectionView](./docs/iOS/IMUIMessageCollectionView_usage.md)
+- [IMUIInputView](./docs/iOS/IMUIInputView_usage.md)
+
+### React Native
+- [AuroraIMUI](./ReactNative/README.md)
 
 ## Contribute
+
 Please contribute! [Look at the issues](https://github.com/jpush/imui/issues).
 
 ## License

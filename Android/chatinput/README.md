@@ -5,82 +5,82 @@
 这是一个聊天界面输入框组件，可以方便地结合 `MessageList` 使用，包含录音，选择图片，拍照等功能，提供了一些丰富的接口和回调供用户使用，
 还可以选择自定义样式。
 
-## 下载
+> 该组件依赖了 Glide 3.7.0
+
+## 集成
 提供了以下几种方式添加依赖，只需要选择其中一种即可。
 
 - Gradle
 ```groovy
-compile 'cn.jiguang.imui:chatinput:0.1.1'
+compile 'cn.jiguang.imui:chatinput:0.2.0'
 ```
 
 - Maven
-
 ```
 <dependency>
   <groupId>cn.jiguang.imui</groupId>
   <artifactId>chatinput</artifactId>
-  <version>0.1.1</version>
+  <version>0.2.0</version>
   <type>pom</type>
 </dependency>
 ```
 
 - JitPack
-> project 下的 build.gradle
 
-```groovy
-allprojects {
-  repositories {
-    ...
-    maven { url 'https://jitpack.io' }
+  > project 下的 build.gradle
+
+  ```groovy
+  allprojects {
+    repositories {
+      ...
+      maven { url 'https://jitpack.io' }
+    }
   }
-}
+  ```
 
-```
+  > module 的 build.gradle
 
-> module 的 build.gradle
-
-```groovy
-dependencies {
-  compile 'com.github.jpush:imui:0.1.1'
-}
-```
+  ```groovy
+  dependencies {
+    compile 'com.github.jpush:imui:0.2.0'
+  }
+  ```
 
 ## 用法
-使用 ChatInput 只需要两个步骤。
+使用 ChatInput 只需要两个步骤：
 
-#### 在 xml 布局文件中引用 ChatInputView：
-
+1. 在 xml 布局文件中引用 ChatInputView：
 ```xml
     <cn.jiguang.imui.chatinput.ChatInputView
         android:id="@+id/chat_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:cameraBtnIcon="@drawable/camera"
-        app:inputCursorDrawable="@drawable/jmui_text_cursor_bg"
-        app:inputEditTextBg="@drawable/jmui_chat_input_bg"
-        app:inputHint="@string/input_hint"
-        app:photoBtnIcon="@drawable/photo"
-        app:sendBtnIcon="@drawable/send"
-        app:voiceBtnIcon="@drawable/mic" />
+        app:cameraBtnIcon="@drawable/aurora_menuitem_camera"
+        app:inputCursorDrawable="@drawable/aurora_edittext_cursor_bg"
+        app:inputEditTextBg="@drawable/aurora_edittext_bg"
+        app:inputHint="@string/chat_input_hint"
+        app:photoBtnIcon="@drawable/aurora_menuitem_photo"
+        app:sendBtnIcon="@drawable/aurora_menuitem_send"
+        app:voiceBtnIcon="@drawable/aurora_menuitem_mic" />
 ```
 
-#### 初始化 ChatInputView
-
+2. 初始化 ChatInputView
 ```java
 ChatInputView chatInputView = (ChatInputView) findViewById(R.id.chat_input);
 chatInputView.setMenuContainerHeight(softInputHeight);
 ```
-**初始化后一定要设置一下 MenuContainer 的高度，最好设置为软键盘的高度，否则会导致第一次打开菜单时高度不正常（此时打开软键盘会导致界面伸缩）。**
 
-建议在跳转到聊天界面之前使用 onSizeChanged 方法监听软键盘的高度，然后在初始化的时候设置即可，
-关于监听软键盘高度的方法可以参考 sample 下的 MessageListActivity 及 ChatView 中的 onSizeChanged 相关方法。
+  **初始化后一定要设置一下 MenuContainer 的高度，最好设置为软键盘的高度，否则会导致第一次打开菜单时高度不正常（此时打开软键盘会导致界面伸缩）。**
+
+  建议在跳转到聊天界面之前使用 onSizeChanged 方法监听软键盘的高度，然后在初始化的时候设置即可，
+  关于监听软键盘高度的方法可以参考 sample 下的 MessageListActivity 及 ChatView 中的 onSizeChanged 相关方法。
 
 ## 重要接口及事件
 ChatInputView 提供了各种按钮及事件的监听回调，所以用户可以灵活地运用监听事件做一些操作，如发送消息等事件。
 
-#### OnMenuClickListener
-首先是输入框下面的菜单栏事件的监听，调用 chatInputView.setMenuClickListener 即可设置监听：
+### OnMenuClickListener
+首先是输入框下面的菜单栏事件的监听，调用 `chatInputView.setMenuClickListener` 即可设置监听：
 ```java
 chatInput.setMenuClickListener(new OnMenuClickListener() {
     @Override
@@ -111,7 +111,7 @@ chatInput.setMenuClickListener(new OnMenuClickListener() {
 ```
 关于上述事件的处理，可以参考 sample 中的 MessageListActivity 对于事件的处理。
 
-#### RecordVoiceListener
+### RecordVoiceListener
 这是录音的接口，使用方式：
 
 ```java
@@ -143,7 +143,7 @@ mRecordVoiceBtn.setRecordVoiceListener(new RecordVoiceListener() {
 });
 ```
 
-#### OnCameraCallbackListener
+### OnCameraCallbackListener
 这是相机相关的接口，使用方式：
 ```java
 mChatInput.setOnCameraCallbackListener(new OnCameraCallbackListener() {
@@ -178,9 +178,8 @@ mChatInput.setOnCameraCallbackListener(new OnCameraCallbackListener() {
 });
 ```
 
-#### 设置拍照后保存的文件
-setCameraCaptureFile(String path, String fileName)
-
+### 设置拍照后保存的文件
+`setCameraCaptureFile(String path, String fileName)`
 ```java
 // 参数分别是路径及文件名，建议在上面的 onCameraClick 触发时调用
 mChatInput.setCameraCaptureFile(path, fileName);
